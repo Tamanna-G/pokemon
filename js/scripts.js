@@ -33,4 +33,15 @@ let pokemonList = [
         types: ['grass', 'poison'],
     },
 ];
+//for loop iterates over each item in pokemonList
+for (let i = 0; i < pokemonList.length; i++) {
+    let name = pokemonList[i].name;
+    let height = pokemonList[i].height;
+//highlight Pokemon with height > 1 with "Wow, that's big!"
+    let text =
+        height > 1
+            ? `<span class="card__front--name">${name}</span> (height: ${height}) - Wow, that's big!`
+            : `<span class="card__front--name">${name}</span> (height: ${height})`;
 
+    document.write(`<div class="card__front">${text}</div>`);
+}
