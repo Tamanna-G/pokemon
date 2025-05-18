@@ -30,26 +30,34 @@ let pokemonRepository = (function() {
             spDefense: 100,
             height: 2,
             types: ['grass', 'poison'],
-        },
+        }
     ];
+    function addListItem(pokemon) {
+        let pokemonList = document.querySelector('.pokemon-list');
+            // Create list item and button
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
+            button.innerText = pokemon.name;
+            button.classList.add('pokemon-button');
+            // Add event listener
+            button.addEventListener('click', function () {
+            showDetails(pokemon);
+        });
+            // Append button to listItem, then listItem to UL
+            listItem.appendChild(button);
+            pokemonList.appendChild(listItem);
+        }
+    function showDetails(pokemon) {
+        console.log(pokemon);
+        }                   
     function getAll() {
 		return pokemonList;
 	}
 	function add(pokemon) {
 		pokemonList.push(pokemon);
 	}
-	return {
-		getAll: getAll,
-		add: add,
-	};
-})();
-pokemonRepository.getAll().forEach(function(pokemon) {
-    let name = pokemon.name;
-    let height = pokemon.height;
-    // highlight Pokemon with height > 1 with "Wow, that's big!"
-    let text =
-        height > 1
-            ? `<span class="card__front--name">${name}</span> (height: ${height}) - Wow, that's big!`
-            : `<span class="card__front--name">${name}</span> (height: ${height})`;
-    document.write(`<div class="card__front">${text}</div>`);
-});
+    return {
+        getAll: getAll,
+        add: add,
+        addListItem: addListItem
+    }
