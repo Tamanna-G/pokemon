@@ -60,4 +60,8 @@ let pokemonRepository = (function() {
         getAll: getAll,
         add: add,
         addListItem: addListItem
-    }
+    };
+}();
+pokemonRepository.getAll().forEach(function (pokemon){
+    pokemonRepository.addListItem(pokemon);
+});
