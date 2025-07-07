@@ -54,6 +54,7 @@ let pokemonRepository = (function() {
       modal.appendChild(closeButtonElement);
       modal.appendChild(titleElement);
       modal.appendChild(contentElement);
+      modal.appendChild(imageElement);
       modalContainer.appendChild(modal);
     
       modalContainer.classList.add('is-visible');
