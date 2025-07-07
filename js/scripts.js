@@ -71,6 +71,7 @@ let pokemonRepository = (function() {
           hideModal();
         }
       });
+    }
 
   function hideModal() {
     let modalContainer = document.querySelector('#modal-container');
